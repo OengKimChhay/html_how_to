@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!--font awesome-->
+   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <title>carousel</title>
+   
+   <style>
+      *{
+         margin: 0;
+         padding: 0;
+      }
+      .header{
+         text-align: center;
+         margin: 20px;
+         font-size: 40px;
+      }
+      .wrraper{
+         position: relative;
+      }
+      i{
+         font-size: 40px;
+         cursor: pointer;
+      }
+      .prev{
+         position: absolute;
+         top: 50%;
+         left: 90px;
+      }
+      .next{
+         position: absolute;
+         top: 50%;
+         right: 90px;
+      }
+      .wrraper .post-wrapper{
+         margin: 0 auto;
+         width: 80%;
+         overflow: hidden;
+      }
+      .post-wrapper .post{
+         display: inline-block;
+         width: 300px;
+         height: 300px;
+         margin: 20px;
+         background-color: gray;
+         border: 1px solid black;
+         border-radius: 3px;
+      }
+   </style>
+</head>
+<body>
+   
+<div class="wrraper">
+   <div class="header">Carousel</div>
+   <i class="fas fa-chevron-left prev"></i>
+   <i class="fas fa-chevron-right next"></i>
+   <div class="post-wrapper">
+      <div class="post">
+         <img src="../../image/background-1.jpg" alt="" srcset="" width="100%">
+         <p>sdfsdlkfj</p>
+      </div>
+      <div class="post">
+         <img src="../../image/background-1.jpg" alt="" srcset="" width="100%">
+         <p>sdfsdlkfj</p>
+      </div>
+      <div class="post">
+         <img src="../../image/background-1.jpg" alt="" srcset="" width="100%">
+         <p>sdfsdlkfj</p>
+      </div>
+      <div class="post">
+         <img src="../../image/background-1.jpg" alt="" srcset="" width="100%">
+         <p>sdfsdlkfj</p>
+      </div>
+      <div class="post">
+         <img src="../../image/background-1.jpg" alt="" srcset="" width="100%">
+         <p>sdfsdlkfj</p>
+      </div>
+      <div class="post">
+         <img src="../../image/background-1.jpg" alt="" srcset="" width="100%">
+         <p>sdfsdlkfj</p>
+      </div>
+   </div>
+</div>
+   <!--jquery-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <!-- for git hub carousel -->
+   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+   <script>
+      $(document).ready(function(){
+         $('.post-wrapper').slick({
+            dots: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            nextArrow: $(".next"),
+            prevArrow: $(".prev"),
+            responsive: [
+                           {
+                              breakpoint: 1024,
+                              settings: {
+                              slidesToShow: 3,
+                              slidesToScroll: 3,
+                              infinite: true,
+                              dots: true
+                              }
+                           },
+                           {
+                              breakpoint: 600,
+                              settings: {
+                              slidesToShow: 2,
+                              slidesToScroll: 2
+                              }
+                           },
+                           {
+                              breakpoint: 480,
+                              settings: {
+                              slidesToShow: 1,
+                              slidesToScroll: 1
+                              }
+                           }
+                           // You can unslick at a given breakpoint now by adding:
+                           // settings: "unslick"
+                           // instead of a settings object
+                        ]
+         });
+      });
+   </script>
+</body>
+</html>

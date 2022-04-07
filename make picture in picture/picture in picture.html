@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Picture In Picture</title>
+</head>
+<body>
+   <video id="video" controls>
+      <source src="../../../../Videos/Songs/Maroon 5 - Memories (Lyrics).mp4" type="video/mp4">
+   </video>
+   <button id="btn">enter pic in pic</button>
+   <script>
+      var video = document.querySelector("#video");
+      var btn = document.querySelector("#btn");
+      
+         if("pictureInPictureEnabled" in document){
+            btn.addEventListener("click",() =>{
+               video.requestPictureInPicture().catch(err =>{
+                  console.log(err);
+               });
+            });
+         }
+      
+   </script>
+</body>
+</html>

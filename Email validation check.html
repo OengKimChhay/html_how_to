@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Email validation check</title>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }  
+  body{
+    background: #373737;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  h3{
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #f9f9f9;
+    font-weight: 600;
+    letter-spacing: 1px
+  }
+  .email{
+    width: 300px;
+    background: #292929;
+    outline: none;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+  .wanning-text{
+    display: block;
+    font-size: 20px;
+    font-weight: 300;
+    padding: 5px;
+    font-size: italic;
+  }
+</style>
+</head>
+<body>
+  
+  <div>
+    <h3>Email Validation check</h3>
+    <form action="#" class="form">
+      <div class="input-box">
+        <input onKeyDown="validation()" type="email" class="email" placeholder="example@gmail.com">
+        <span class="wanning-text"></span>
+      </div>
+    </form>
+  </div>
+  
+  <script type="text/javascript">
+    function validation(){
+      var email = document.querySelector('.email').value;
+      var wanningText = document.querySelector('.wanning-text');
+      var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      
+      if(email.match(pattern)){
+        wanningText.innerHTML = 'Your email address is valid';
+        wanningText.style.color ='#00ff00';
+      }
+      else{
+        wanningText.innerHTML = 'Your email address is Invalid';
+        wanningText.style.color = '#ff0000';
+      }
+//      ------- if user input nothing ----
+      if(email == ''){
+        wanningText.innerHTML = '';
+      }
+    }
+  </script>
+</body>
+</html>

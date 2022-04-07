@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Registeration</title>
+   <style>
+      body{
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%,-50%);
+         background-color: #cfcfcf;
+      }
+      .wrapper{
+         width: 300px;
+         padding: 23px;
+         background-color: white;
+         box-shadow: 0 0 9px rgba(0,0,0,0.3);
+         border-radius: 4px;
+      }
+      .regis{
+         font-size: 20px;
+         text-align: center;
+         color: darkorange;
+      }
+      form .inputBox{
+         width: 100%;
+         margin: 7px 0;
+      }
+      form .inputBox label,input,p{
+         width: 100%;
+      }
+      form .inputBox label{
+         font-size: 16px;
+         display: inline-block;
+         margin: 3px 0;
+      }
+      form .inputBox input{
+         outline: none;
+         box-sizing: border-box;
+         display: block;
+         border: 1px solid black;
+         border-radius: 3px;
+         padding: 7px;
+      }
+      form .inputBox .wanning{
+         visibility: hidden;
+      }
+      form .inputBox.success input{
+         border: 1px solid green;
+      }
+      form .inputBox.error input{
+         border: 1px solid red;
+      }
+      form .inputBox.error .wanning{
+         color: red;
+         visibility: visible;
+      }
+      form .inputBox p{
+         margin: 2px 0px;
+         font-size: 13px;
+      }
+      form .inputBox button{
+         padding: 6px;
+         background-color: bisque;
+         border: 1px solid black;
+         border-radius: 4px;
+         width: 22%;
+         cursor: pointer;
+      }
+   </style>
+</head>
+<body>
+   
+   <div class="wrapper">
+      <p class="regis">Registeration</p>
+      <form action="#" method="POST" id="form">
+         <div class="inputBox">
+            <label for="username">Username</label>
+            <input type="text" id="user" name="username" placeholder="username">
+            <p class="wanning">Error</p>
+         </div>
+         <div class="inputBox">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="email">
+            <p class="wanning">Error</p>
+         </div>
+         <div class="inputBox">
+            <label for="password">password</label>
+            <input type="password" id="pass" name="password" placeholder="password">
+            <p class="wanning">Error</p>
+         </div>
+         <div class="inputBox">
+            <label for="re-password">Re-Password</label>
+            <input type="password" id="pass1" name="re-password" placeholder="re-password">
+            <p class="wanning">Error</p>
+         </div>
+         <div class="inputBox">
+            <button type="submit">Sent</button>
+         </div>
+      </form>
+   </div>
+
+
+   <script type="text/javascript">
+      var form = document.getElementById("form");
+      var user = document.getElementById("user");
+      var email = document.getElementById("email")
+      var pass = document.getElementById("pass");
+      var pass1 = document.getElementById("pass1");
+            form.addEventListener("submit",function(e) {
+               e.preventDefault();
+               inputCheck();
+            });
+            function inputCheck(){
+               // to get input value;
+               var userVal = user.value;
+               var emailVal = email.value;
+               var passVal = pass.value;
+               var pass1Val = pass1.value;
+               // check if user is empty
+               if(userVal === ""){
+                  setErrorFor(user,"Username can not be blank!")
+               }else{
+                  setSuccessFor(user);
+               }
+               // check if email is empty
+               if(emailVal === ""){
+                  setErrorFor(email,"Email can not be blank!")
+               }else{setSuccessFor(email);
+                  //check if email invalid
+                  email.addEventListener("keyup",()=>{
+                     var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                     if(email.value.match(pattern)){
+                        setSuccessFor(email);
+                     }else{
+                        setErrorFor(email,"Your email is invalid!");
+                     }
+                  });
+               }
+               // check if password is empty
+               if(passVal === ""){
+                  setErrorFor(pass,"Password can not be blank!")
+               }else{
+                  setSuccessFor(pass);
+               }
+               // check if re-password is empty
+               if(pass1Val === ""){
+                  setErrorFor(pass1,"Re-password can not be blank!")
+               }
+               //check if password and re-password dont match
+               else if(passVal !== pass1Val){
+                  setErrorFor(pass1,"Re-Password don't match!");
+               }
+               else{
+                  setSuccessFor(pass1);
+               }
+
+               
+               // function for check for error or success
+               function setErrorFor(input,Msg){
+                  var ParentEle = input.parentElement;
+                  var err = ParentEle.querySelector(".wanning");
+                  ParentEle.className = "inputBox error";
+                  err.innerText = Msg;
+               }
+               function setSuccessFor(input){
+                  var ParentEle = input.parentElement;
+                  ParentEle.className = "inputBox success";
+               }
+            }
+            
+   </script>
+</body>
+</html>

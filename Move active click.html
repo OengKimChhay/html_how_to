@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      ul{
+         padding: 0;
+         margin: 0;
+         background-color: gray;
+      }
+      li a{
+         text-decoration: none;
+         color: white;
+      }
+      li{
+         padding: 10px;
+         display: inline-block;
+         transition: 0.3s;
+      }
+      li:hover{
+         background-color: black;
+      }
+      li.active{
+         background-color: black;
+         color: coral;
+      }
+   </style>
+</head>
+<body>
+   <div class="wrapper">
+      <ul>
+         <li class="active"><a href="#">Home</a></li>
+         <li><a href="#">Home</a></li>
+         <li><a href="#">Home</a></li>
+         <li><a href="#">Home</a></li>
+      </ul>
+   </div>
+
+   <script>
+      var lis = document.querySelectorAll("li");
+      lis.forEach(li => li.addEventListener("click",function(){
+         lis.forEach(li => li.classList.remove("active"));
+         this.classList.add("active");
+      }));
+   </script>
+</body>
+</html>

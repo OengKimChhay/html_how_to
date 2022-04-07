@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>localStorage</title>
+<style>
+  fieldset{
+    width: 500px;
+    margin-bottom: 20px;
+  }  
+  input{
+    padding: 7px;
+    
+  }
+</style>
+</head>
+<body>
+  
+  <h2>How to insert data into localStorage</h2>
+  <p>to insert data into localStorage use <strong>localStorage.setItem('key','value');</strong></p>   
+  <p>to get data from localStorage use <strong>localStorage.getItem('key');</strong></p>
+  <p>to get the Index of data from localStorage use <strong>localStorage.key(Index number of key);</strong></p>
+  <p>to remive data from localStorage use <strong>localStorage.removeItem('key');</strong></p>
+  
+  
+  <fieldset>
+    <legend>Insert Data</legend>
+    <input type="text" id="InKey" placeholder="Enter Key">
+    <input type="text" id="InValue" placeholder="Enter Value">
+    <input type="button" value="Insert" id="btn">
+  </fieldset>
+  
+  <fieldset>
+    <legend>Data Output</legend>
+    <div id="output"></div>
+  </fieldset>
+  
+  <script type="text/javascript">
+    const InKey = document.getElementById('InKey');
+    const InValue = document.getElementById('InValue');
+    const btn = document.getElementById('btn');
+    const output = document.getElementById('output');
+    
+    btn.onclick = function(){
+//      to insert data into localStorage by localStorage.setItem('name','value');
+      const key = InKey.value;
+      const value = InValue.value;
+      if(key && value){
+        localStorage.setItem(key, value);
+      }
+      
+//       to output data from localStorage by localStorage.getItem('name');
+      
+      for(let i=0;i<localStorage.length;i++){
+        const key = localStorage.key(i);   //to store data in var key
+        const value = localStorage.getItem(key);  // to get data from key var
+        output.innerHTML += `${key} : ${value} </br>`;
+      }
+      
+      
+    }
+    
+    
+    
+    
+    
+    
+  </script>
+</body>
+</html>

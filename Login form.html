@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login form</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: #000000;
+    }
+    .wrap-login{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .form{
+      width: 800px;
+      background-color: white;
+    }
+    .header-login{
+      width: 100%;
+    }
+    .header-login p{
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      font-family: 'Cooper Black';
+      padding: 20px;
+      color: black;
+    }
+    .body-login{
+      width: 100%; 
+      display: flex;
+      flex-direction: row;
+    }
+    .login-media{
+      width: 400px;    /* derived from width of form 800/2*/
+     position: relative;
+    }
+    .login-media::before{
+      position: absolute;
+      content: '';
+      top: 0;
+      right: 0;
+      width: 1.5px;
+      height: 100%;
+      background-color: #646464;
+    }
+    .login-media::after{
+      position: absolute;
+      content: 'Or';
+      top: 43%;
+      right: -2.7%;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      color: #646464;
+      background-color: white;
+      font-weight: 500;
+      border: 1px solid #646464;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .login-media .facebook,.twiter,.google{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .login-media .facebook a{
+      width: 70%;
+      padding: 10px;
+      color: white;
+      margin: 10px 0;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 2px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #097CEB;
+      transition: transform 0.3s;
+    }
+    .login-media .twiter a{
+      width: 70%;
+      padding: 10px;
+      color: white;
+      margin: 10px 0;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 2px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #00E4E0;
+      transition: transform 0.3s;
+    }
+    .login-media .google a{
+      width: 70%;
+      padding: 10px;
+      color: white;
+      margin: 10px 0;
+      font-size: 17px;
+      font-weight: 600;
+      border-radius: 2px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #FF686B;
+      transition: transform 0.3s;
+    }
+    .login-media .facebook a:hover,.google a:hover,.twiter a:hover{
+      transform: scale(1.03);
+    }
+    .login-username{
+      width: 400px;
+    }
+    .login-username .username,.password,.submit{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .username input{
+      width: 70%;
+      outline: none;
+      padding: 8px;
+      margin: 10px 0;
+      font-size: 17px;
+    }
+    .password input{
+      width: 70%;
+      outline: none;
+      padding: 8px;
+      margin: 10px 0;
+      font-size: 17px;
+    }
+    .submit input{
+      width: 76%;
+      outline: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      font-weight: 500;
+      padding: 8px;
+      margin: 10px 0;
+      background: #13C105;
+      cursor: pointer;
+    }
+    .bottom-login{
+      width: 100%;
+      display: flex;
+      margin: 20px 0 0 0;
+      background: #097CEB;
+    }
+    .bottom-login .sign-up,.forgot{
+      width: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .bottom-login .sign-up a,.forgot a{
+      text-decoration: none;
+      color: white;
+      font-size: 17px;
+      padding: 16px 0;
+    }
+    .bottom-login .sign-up a:hover,.forgot a:hover{
+      text-decoration: underline;
+    }
+    @media screen and (max-width:800px){
+      .form{
+        width: 100%;
+      }
+      .body-login{
+        flex-direction: column;
+      }
+      .bottom-login{
+        flex-direction: column;
+      }
+      .login-media::before{
+        top: 100%;
+        height: 1px;
+        width: 100%;
+      }
+      .login-media::after{
+        top: 94%;
+        left: 46%;
+      }
+      .login-media .google a{
+        margin-bottom: 20px;
+      }
+      .username input{
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="wrap-login">
+    <form action="" class="form">
+      <div class="header-login">
+        <p>LogIn Form</p>
+      </div>
+      <div class="body-login">
+        <div class="login-media">
+          <div class="facebook">
+            <a href="#">Login width Facebood</a>
+          </div>
+          <div class="twiter">
+            <a href="#">Login width Twiter</a>
+          </div>
+          <div class="google">
+            <a href="#">Login width google+</a>
+          </div>
+        </div>
+        <div class="login-username">
+          <div class="username">
+            <input type="text" required placeholder="username">
+          </div>
+          <div class="password">
+            <input type="password" required placeholder="password">
+          </div>
+          <div class="submit">
+            <input type="submit" value="Login">
+          </div>
+        </div>
+      </div>
+      <div class="bottom-login">
+        <div class="sign-up"><a href="#">Sign Up</a></div>
+        <div class="forgot"><a href="#">Forgot password?</a></div>
+      </div>
+    </form>
+  </div>
+  
+  
+  
+</body>
+</html>

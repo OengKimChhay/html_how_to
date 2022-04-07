@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Model Box</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+    }
+    .show-area{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .show-area button{
+      outline: none;
+      border: none;
+      font-size: 20px;
+      color: white;
+      background-color: #27AE60;
+      padding: 5px 13px;
+      border-radius: 4px;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+    .show-area button:hover{
+      background-color: #079C69;
+    }
+    .model{
+      position: absolute;
+      top: -400%;
+      left: 50%;
+      opacity: 0;
+      width: 480px;
+      transform: translate(-50%,-50%);
+      box-shadow: 0 0 20px rgba(0,0,0,.3);
+      transition: all cubic-bezier(0.6,0.9,0.1,1.08) 0.25s;
+        }
+    .model.show{
+      top: 50%;
+      opacity: 1;
+    }
+    .model-head{
+      width: 100%;
+      height: 80px;
+      background-color: #34495E;
+    }
+    .model-head h4{    
+      text-align: left;
+      text-transform: uppercase;
+      font-size: 20px;
+      font-family: Cooper Black;
+      font-weight: 500;
+      margin: 0;
+      padding: 25px;
+      color: #f2f2f2;
+    }
+    .close-span{
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .close-span span{
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 5px;
+      transform: rotate(45deg);
+      background: #f2f2f2;
+    }
+    .close-span span::before{
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 5px;
+      top:0;
+      transform: rotate(90deg);
+      background: #f2f2f2;
+    }
+    .model-body{
+      width: 100%;
+      height: 200px;
+      background: white;
+      text-align: center;
+    }
+    .model-body h4{
+      color: #635B5B;
+      margin: 0;
+      padding: 30px;
+      font-size: 20px;
+      font-family: Cooper Black;
+    }
+    .model-body p{
+      font-size: 20px;
+      color: darkslategray;
+    }
+    .model-bottom{
+      background-color: #B6CDCD;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .model-bottom button{
+      outline: none;
+      border: none;
+      font-size: 20px;
+      color: white;
+      background-color: #27AE60;
+      padding: 5px 13px;
+      border-radius: 4px;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    
+  <div class="show-area">
+    <button class="show-btn">Open Model</button>
+  </div>
+  
+  <div class="model">
+    <div class="model-head">
+      <h4>Model Box</h4>
+      <div class="close-span">
+        <span></span>
+      </div>
+    </div>
+    <div class="model-body">
+        <h4>Custom model box</h4>
+        <p>Create custom model box using HTML CSS and JS</p>
+     
+    </div>
+    <div class="model-bottom">
+      <button class="close-btn">close</button>
+    </div>
+  </div>
+  
+  
+  <script>
+    var showModel = document.querySelector('.show-btn');
+    var model = document.querySelector('.model');
+    var closeSpan = document.querySelector('.close-span');
+    var closeBtn = document.querySelector('.close-btn');
+        showModel.addEventListener('click',function(){
+          model.classList.toggle('show');
+        })
+      
+        closeBtn.addEventListener('click',function(){
+          model.classList.toggle('show');
+        })
+        closeSpan.addEventListener('click',function(){
+          model.classList.toggle('show');
+        })
+  </script>
+  
+</body>
+</html>

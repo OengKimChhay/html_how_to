@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<style>
+.numericButton
+{
+    background-color: #FFFFFF;
+    color: #666666;
+    border: 1px solid #C9C9C9;
+    display: inline-block;
+    height: 15px;
+    line-height: 14px;
+    min-width: 14px !important;
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+}
+.currentPageButton
+{
+    background-color: #686868;
+    color: #fff !important;
+    border: 1px solid #C9C9C9;
+    display: inline-block;
+    height: 15px;
+    line-height: 14px;
+    min-width: 14px !important;
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+}
+.nextbutton {
+    background-color: #FFFFFF;
+    border: 1px solid #C9C9C9;
+    color: #666666 !important;
+    display: inline-block;
+    height: 15px;
+    line-height: 14px;
+    padding: 4px;
+    text-align: center;
+    text-decoration: none;
+    width: 55px;
+}
+#page_navigation{
+    padding-top:8px;
+}
+
+
+
+</style>
+<body>
+    
+
+    <div>
+        <div id="paginate">
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">1</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">2</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">3</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">1</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">2</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">3</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">1</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">2</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">3</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">1</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">2</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">3</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">1</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">2</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">3</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">1</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">2</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">3</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">4</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">5</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">6</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">7</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">8</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">9</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">10</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">11</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">12</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">13</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">14</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">15</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">16</div>
+            </div>
+            <div class="gg">
+                <div style="width:40px;background-color: green;margin: 3px;">17</div>
+            </div>
+        </div>
+    </div>
+        <input type='hidden' id='current_page' />
+        <input type='hidden' id='show_per_page' />
+        <div id='page_navigation'></div>
+
+
+    <script>
+    $(document).ready(function () {      
+        makePager = function(page){
+            var show_per_page = 4;
+            var number_of_items = $('#paginate .gg').size();
+            var number_of_pages = Math.ceil(number_of_items / show_per_page);
+            var number_of_pages_todisplay =  number_of_items ;
+            var navigation_html = '';
+            var current_page = page;
+            var current_link = (number_of_pages_todisplay >= current_page ? 1 : number_of_pages_todisplay + 1);
+            if (current_page > 1)
+                current_link = current_page;
+            if (current_link != 1) navigation_html += "<a class='nextbutton' href=\"javascript:first();\">« Start&nbsp;</a>&nbsp;<a class='nextbutton' href=\"javascript:previous();\">« Prev&nbsp;</a>&nbsp;";
+
+            if (current_link == number_of_pages - 1) current_link = current_link - 3;
+            else if (current_link == number_of_pages) current_link = current_link - 4;
+            else if (current_link > 2) current_link = current_link - 2;
+            else current_link = 1;
+            var pages = number_of_pages_todisplay;
+            while (pages != 0) {
+                if (number_of_pages < current_link) { break; }
+                if (current_link >= 1)
+                    navigation_html += "<a class='" + ((current_link == current_page) ? "currentPageButton" : "numericButton") + "' href=\"javascript:showPage(" + current_link + ")\" longdesc='" + current_link + "'>" + (current_link) + "</a>&nbsp;";
+                current_link++;
+                pages--;
+                
+            }
+            console.log(current_link)
+            if (current_link == number_of_pages) navigation_html = "<a class='" + ((current_link == current_page) ? "currentPageButton" : "numericButton") + "' href=\"javascript:showPage(" + current_link + ")\" longdesc='" + current_link + "'>" + (current_link) + "</a>&nbsp;";
+            if (number_of_pages > current_page){
+                navigation_html += "<a class='nextbutton' href=\"javascript:next()\">Next »</a>&nbsp;<a class='nextbutton' href=\"javascript:last(" + number_of_pages + ");\">Last »</a>";
+            }
+                    $('#page_navigation').html(navigation_html);
+      }
+      var pageSize = 4;
+      showPage = function (page) {
+            $("#paginate .gg").hide();
+            $('#current_page').val(page);
+            $("#paginate .gg").each(function (n) {
+                if (n >= pageSize * (page - 1) && n < pageSize * page)
+                    $(this).show();
+            });
+        makePager(page);
+       }
+        showPage(1);
+       next = function () {
+            new_page = parseInt($('#current_page').val()) + 1;
+            showPage(new_page);
+        }
+        last = function (number_of_pages) {
+            new_page = number_of_pages;
+            $('#current_page').val(new_page);
+            showPage(new_page);
+        }
+        first = function () {
+            var new_page = "1";
+            $('#current_page').val(new_page);
+            showPage(new_page);    
+      }
+        previous = function () {
+            new_page = parseInt($('#current_page').val()) - 1;
+            $('#current_page').val(new_page);
+            showPage(new_page);
+      }
+    }); 
+        </script>
+    
+</body>
+</html>

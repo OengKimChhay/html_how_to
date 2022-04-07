@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Text animatiion</title>
+<style type="text/css">
+	body{
+		margin: 0;
+		padding: 0;
+		background-color: aliceblue;
+		
+	}	
+	.wrap-text{
+		min-height: 100vh;
+		font-size: 100px;
+		font-weight: 900;
+		color: #F07826;
+		display: flex;
+		justify-content: center;
+		align-items: center
+	}
+	.wrap-text span{
+		text-transform: uppercase;
+		letter-spacing: 7px;
+		animation: animation 4s ease forwards infinite;
+	}
+	.wrap-text span:nth-child(1){
+		animation-delay: 0.1s;
+	}
+	.wrap-text span:nth-child(2){
+		animation-delay: 0.3s;
+	}
+	.wrap-text span:nth-child(3){
+		animation-delay: 0.6s;
+	}
+	.wrap-text span:nth-child(4){
+		animation-delay: 0.9s;
+	}
+	.wrap-text span:nth-child(5){
+		animation-delay: 1.2s;
+	}
+	.wrap-text span:nth-child(6){
+		animation-delay: 1.5s;
+	}
+	.wrap-text span:nth-child(7){
+		animation-delay: 1.8s;
+	}
+	.wrap-text span:nth-child(8){
+		animation-delay: 2.1s;
+	}
+	.wrap-text span:nth-child(9){
+		animation-delay: 2.4s;
+	}
+	@keyframes animation{
+		0%,100%{ text-shadow: 0px 0px 0px black;}
+		40%{ text-shadow: 10px 10px 10px black;}
+		
+		
+	}
+</style>
+</head>
+
+<body>
+	
+	<div class="wrap-text">
+		<span>k</span>
+		<span>n</span>
+		<span>o</span>
+		<span>w</span>
+		<span>l</span>
+		<span>e</span>
+		<span>d</span>
+		<span>g</span>
+		<span>e</span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Accordion Menu</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      min-height: 100vh; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .wrap{
+      width:850px;
+      margin: auto;
+     
+    }
+    .title{
+      text-align: center;
+      font-size:32px;
+      font-weight: 600;
+      border-radius: 4px;
+      background-color: #edc856;
+      width:100%;
+    }
+    .wrap-accordion ul{
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+    }
+    .wrap-accordion ul li .accordion-item{
+      width: 150px;
+      height: 220px;
+      background: #edc856;
+      transition: all 0.3s ease;
+    }
+     .wrap-accordion ul li{
+      display: flex;
+      cursor: pointer;
+      border: 1px solid gray;
+    }
+    .wrap-accordion ul li .accordion-item img{
+      width: 100%;
+    }
+    .wrap-accordion ul li .content{
+      width: 0;
+      height: 220px;
+      overflow: hidden;
+      background:#E3E3E3;
+      transition: 0.3s ease;
+    }
+    .wrap-accordion ul li.active .content{
+      width: 180px;
+    }
+    .wrap-accordion ul li .content h3{
+      color: #25AD9A;
+      margin: 10px;
+    }  
+    .wrap-accordion ul li .content p{
+      margin: 10px;
+    }
+    .wrap-accordion ul li .content button{
+      border: none;
+      outline: none;
+      color: white;
+      height: 30px;
+      background: #FF6C6E;
+      border-radius: 3px;
+      margin: 20px;
+      cursor: pointer;
+    }
+    .wrap-accordion ul li:hover .accordion-item{
+      background:#a48d2d;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="wrap">
+    <div class="title">
+      Accordion Menu
+    </div>
+   <div class="wrap-accordion">
+     <ul>
+        <li>
+          <div class="accordion-item">
+             <img src="../image/idea.png" alt="">
+          </div>
+          <div class="content">
+            <h3>Light</h3>
+            <p>Have a team of experienced trainers. Our trainers understand </p>
+            <button>view more</button>
+          </div>
+        </li>
+       <li>
+          <div class="accordion-item">
+             <img src="../image/idea.png" alt="">
+          </div>
+           <div class="content">
+            <h3>Light</h3>
+            <p>Have a team of experienced trainers. Our trainers understand </p>
+            <button>view more</button>
+          </div>
+        </li>
+       <li>
+          <div class="accordion-item">
+             <img src="../image/idea.png" alt="">
+          </div>
+           <div class="content">
+            <h3>Light</h3>
+            <p>Have a team of experienced trainers. Our trainers understand </p>
+            <button>view more</button>
+          </div>
+        </li>
+       <li>
+          <div class="accordion-item">
+             <img src="../image/idea.png" alt="">
+          </div>
+           <div class="content">
+            <h3>Light</h3>
+            <p>Have a team of experienced trainers. Our trainers understand </p>
+            <button>view more</button>
+          </div>
+        </li>
+       <li>
+          <div class="accordion-item">
+             <img src="../image/idea.png" alt="">
+          </div>
+          <div class="content">
+            <h3>Light</h3>
+            <p>Have a team of experienced trainers. Our trainers understand </p>
+            <button>view more</button>
+          </div>
+       </li>
+     </ul>
+    </div>
+  </div>
+  
+  <script>
+   var li_item = document.querySelectorAll(".wrap-accordion ul li");
+   var ul_item= document.querySelector(".wrap-accordion ul");
+       li_item.forEach(function(item){ 
+            item.addEventListener("click",function(){
+                li_item.forEach(function(item){
+                    item.classList.remove("active");
+                                              });
+                item.classList.add("active");
+                                                    });
+                                     });
+    ul_item.addEventListener("mouseleave",function(){
+        li_item.forEach(function(item){
+            item.classList.remove("active");
+                                      });
+                                                    });
+  </script>
+  
+</body>
+</html>

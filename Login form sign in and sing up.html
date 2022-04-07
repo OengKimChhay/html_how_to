@@ -1,0 +1,495 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>form sign in and sing up</title>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }  
+  body{
+    background-color:#E3D6D6;
+    max-height: 100vh;
+  }
+  .sign-in{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: all cubic-bezier(0.6,0.9,0.1,1.08) 0.25s;
+    transform: translate(-50%,-50%);
+    background-color:#E3D6D6;
+		box-shadow: -10px -10px 10px rgba(255,255,255,0.4),
+					        10px 10px 10px rgba(0,0,0,0.2);
+    border-radius: 5px;
+  }
+  .sign-in.hide{
+    top: -400%;
+  }
+  .sign-in h3{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: #656565;
+    padding: 25px 0 0;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+  }
+  .sign-in form{
+    width: 350px;
+    padding: 30px;
+  }
+  .sign-in .username,.password,.submit{
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+  .sign-in .username input,.password input{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    color: #656565;
+    font-size: 15px;
+    background-color:#E3D6D6;
+    border-radius: 40px;
+    box-shadow: -5px -5px 5px rgba(255,255,255,0.4),
+					        5px 5px 5px rgba(0,0,0,0.2);
+  }
+  .sign-in .username input:focus,.sign-in .submit input:focus,.password input:focus{
+    box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2),
+                inset -5px -5px 5px rgba(255,255,255,0.4);
+  }
+  .sign-in .submit input{
+    outline: none;
+    border: none;
+    padding: 15px;
+    width: 35%;
+    color: #656565;
+    font-size: 15px;
+    cursor: pointer;
+    background-color:#E3D6D6;
+    border-radius: 40px;
+    box-shadow: -5px -5px 5px rgba(255,255,255,0.4),
+					        5px 5px 5px rgba(0,0,0,0.2);
+  }
+  .sign-in .rest-pas-forgot-pas{
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 30px 70px;
+    color: #656565;
+    font-size: 18px;
+  }
+  .sign-in .rest-pas-forgot-pas a,.don-have-acc a{
+    padding: 0 5px;
+    color: #1D37FF;
+    text-decoration: none;
+  }
+  .sign-in .don-have-acc{
+    display: flex;
+    justify-content: center;
+    color: #656565;
+    font-size: 20px;
+  }
+  .sign-in .rest-pas-forgot-pas a:hover,.don-have-acc a:hover{
+    text-decoration: underline;
+  }
+/*end sign in*/
+  .sign-up{
+    position: absolute;
+    top: -400%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all cubic-bezier(0.6,0.9,0.1,1.08) 0.25s;
+    background-color:#E3D6D6;
+		box-shadow: -10px -10px 10px rgba(255,255,255,0.4),
+					        10px 10px 10px rgba(0,0,0,0.2);
+    border-radius: 5px;
+  }
+  .sign-up.show{
+    top: 50%;
+  }
+  .sign-up h3{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: #656565;
+    padding: 9px 0 0;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+  }
+  .sign-up form{
+    width: 350px;
+    padding: 5px 30px;
+  }
+  .sign-up .first-name,.last-name,.password1,.confirm,.email1,.submit1{
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+  .sign-up .first-name input,.last-name input,.password1 input,.confirm input,.email1 input,.submit1 input{
+    display: block;
+    outline: none;
+    border: none;
+    padding:  13px 17px;
+    margin: 0 10px;
+    width: 100%;
+    color: #656565;
+    font-size: 15px;
+    background-color:#E3D6D6;
+    border-radius: 40px;
+    box-shadow: -5px -5px 5px rgba(255,255,255,0.4),
+					        5px 5px 5px rgba(0,0,0,0.2);
+  }
+  .sign-up .first-name input:focus,.last-name input:focus,.password1 input:focus,.confirm input:focus,.email1 input:focus,.sign-up .submit1 input:focus {
+    box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2),
+                inset -5px -5px 5px rgba(255,255,255,0.4);
+  }
+  .sign-up .submit1 input{
+    display: block;
+    outline: none;
+    border: none;
+    padding: 15px;
+    width: 35%;
+    color: #656565;
+    font-size: 15px;
+    cursor: pointer;
+    background-color:#E3D6D6;
+    border-radius: 40px;
+    box-shadow: -5px -5px 5px rgba(255,255,255,0.4),
+					        5px 5px 5px rgba(0,0,0,0.2);
+  }
+  
+  .sign-up .go-home{
+    display: flex;
+    justify-content: center;
+    color: #656565;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .sign-up .go-home a{
+    padding: 0 5px;
+    color: #1D37FF;
+    text-decoration: none;
+  }
+  .sign-up .go-home a:hover{
+    text-decoration: underline;
+  }
+  #msg{
+    position: absolute;
+    top: -400%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(0,0,0,0.5);
+    border-radius: 4px;
+    padding: 30px;
+    transition: all 1s;
+  }
+  #msg.show{
+    top: 50%;
+  }
+  #msg p{
+    text-align: center;
+    font-size: 30px;
+    color: #00FF2C;
+    font-weight: 700;
+    white-space: nowrap;
+   
+  }
+  .reset-pass{
+    position: absolute;
+    top: -400%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all cubic-bezier(0.6,0.9,0.1,1.08) 0.25s;
+    background-color:#E3D6D6;
+		box-shadow: -10px -10px 10px rgba(255,255,255,0.4),
+					        10px 10px 10px rgba(0,0,0,0.2);
+    border-radius: 5px;
+  }
+  .reset-pass.show{
+    top: 50%;
+  }
+  .reset-pass h3{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: #656565;
+    padding: 9px 0 0;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+  }
+  .reset-pass form{
+    width: 350px;
+    padding: 5px 30px;
+  }
+  .reset-pass .current-pass,.new-pass,.submit2,.go-home{
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+  .reset-pass .current-pass input,.new-pass input{
+    display: block;
+    outline: none;
+    border: none;
+    padding:  13px 17px;
+    margin: 0 10px;
+    width: 100%;
+    color: #656565;
+    font-size: 15px;
+    background-color:#E3D6D6;
+    border-radius: 40px;
+    box-shadow: -5px -5px 5px rgba(255,255,255,0.4),
+					        5px 5px 5px rgba(0,0,0,0.2);
+  }
+  .submit2 input{
+    display: block;
+    outline: none;
+    border: none;
+    padding:  13px 17px;
+    margin: 0 10px;
+    width: 27%;
+    color: #656565;
+    font-size: 15px;
+    background-color:#E3D6D6;
+    border-radius: 40px;
+    box-shadow: -5px -5px 5px rgba(255,255,255,0.4),
+					        5px 5px 5px rgba(0,0,0,0.2);
+  }
+  .reset-pass .current-pass input:focus,.new-pass input:focus,.submit2 input:focus{
+    box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2),
+                inset -5px -5px 5px rgba(255,255,255,0.4);
+  }
+  .reset-pass .go-home a{
+    padding: 0 5px;
+    color: #1D37FF;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  .reset-pass .go-home a:hover{
+    text-decoration: underline;
+  }
+  .forget-pass{
+    position: absolute;
+    top: -400%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all cubic-bezier(0.6,0.9,0.1,1.08) 0.25s;
+    background-color:#E3D6D6;
+		box-shadow: -10px -10px 10px rgba(255,255,255,0.4),
+					        10px 10px 10px rgba(0,0,0,0.2);
+    border-radius: 5px;
+  }
+  .forget-pass.show{
+    top: 50%;
+  }
+  .forget-pass h3{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: #656565;
+    padding: 9px 0 0;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+  }
+  .forget-pass .direction{
+    width: 350px;
+    margin: auto;
+  }
+  .forget-pass .direction p{
+    margin: 20px;
+    font-size: 20px;
+    color: #ff5353;
+  }
+  .forget-pass form{
+    width: 350px;
+    padding: 5px 30px;
+  }
+  .forget-pass .email3,.submit3,.go-home{
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+   .forget-pass .email3 input,.submit3 input{
+    display: block;
+    outline: none;
+    border: none;
+    padding:  13px 17px;
+    margin: 0 10px;
+    width: 100%;
+    color: #656565;
+    font-size: 15px;
+    background-color:#E3D6D6;
+    border-radius: 40px;
+    box-shadow: -5px -5px 5px rgba(255,255,255,0.4),
+					        5px 5px 5px rgba(0,0,0,0.2);
+  }
+  .submit3 input{
+    display: block;
+    outline: none;
+    border: none;
+    padding:  13px 17px;
+    margin: 0 10px;
+    width: 27%;
+    color: #656565;
+    font-size: 15px;
+    background-color:#E3D6D6;
+    border-radius: 40px;
+    box-shadow: -5px -5px 5px rgba(255,255,255,0.4),
+					        5px 5px 5px rgba(0,0,0,0.2);
+  }
+  .forget-pass .email3 input:focus,.submit3 input:focus{
+    box-shadow: inset 5px 5px 5px rgba(0,0,0,0.2),
+                inset -5px -5px 5px rgba(255,255,255,0.4);
+  }
+  .forget-pass .go-home a{
+    padding: 0 5px;
+    color: #1D37FF;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  .forget-pass .go-home a:hover{
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+  
+  
+  <div class="sign-in">
+    <h3>Log in</h3>
+    <form action="#">
+      <div class="username">
+        <input type="email" required placeholder="email@gmail.com">
+      </div>
+      <div class="password">
+        <input type="password" required placeholder="password">
+      </div>
+      <div class="submit">
+      <input onclick="this.disabled=true; this.form.submit()" type="submit" value="Sign in">
+      </div>
+      <div class="rest-pas-forgot-pas">
+        <a href="#" onclick="resetpass()">Reset password</a>
+        <a href="#" onclick="forgetpass()">Forget password</a>
+      </div>
+      <div class="don-have-acc">
+        Don't have any account?<a href="#" onclick="showSingUp()">Sign up</a>
+      </div> 
+    </form>
+  </div>
+<!--  ------ end sign in  -->
+  
+  <div class="sign-up">
+    <h3>Sign up</h3>
+    <form action="#">
+      <div class="first-name">
+        <input type="text" required placeholder="first name">
+      </div>
+      <div class="last-name">
+        <input type="text" required placeholder="last name">
+      </div>
+      <div class="password1">
+        <input type="password" required placeholder="password">
+      </div>
+      <div class="confirm">
+        <input type="password" required placeholder="confirm password">
+      </div>
+      <div class="email1">
+        <input type="email" required placeholder="email@gmail.com">
+      </div>
+      <div class="submit1">
+        <input onclick="showMsgBox()" type="submit" value="Sign up">
+      </div>
+      <div class="go-home">
+        Already have account?<a href="#" onclick="hideSignUp()">Log In</a>
+      </div>
+      <div id="msg" class="msg">
+        <p>You sign up successfully!</p>
+      </div>
+    </form>
+  </div>
+<!-----end sing up----->
+  <div class="reset-pass">
+    <h3>Reset Password</h3>
+    <form action="#">
+      <div class="current-pass">
+        <input type="password" required placeholder="current password">
+      </div>
+      <div class="new-pass">
+        <input type="password" required placeholder="new password">
+      </div>
+      <div class="submit2">
+        <input type="submit" value="Save">
+      </div>
+      <div class="go-home">
+        <a href="#" onclick="goHome()">Go to home page</a>
+      </div>
+    </form>
+  </div>
+<!---------end reset password----------->
+  <div class="forget-pass">
+    <h3>Forget Password</h3>
+    <div class="direction">
+      <p>Enter email that you used on your account. We'll sent link to your email to reset your password.</p>
+    </div>
+    <form action="#">
+      <div class="email3">
+        <input type="email" required placeholder="current email">
+      </div>
+      <div class="submit3">
+        <input type="submit" value="Sent">
+      </div>
+      <div class="go-home">
+        <a href="#" onclick="goHome1()">Go to home page</a>
+      </div>
+    </form>
+  </div>
+<!--  -----end forget password-------->
+  
+  <script>
+    var signIn = document.querySelector('.sign-in');
+    var signUp = document.querySelector('.sign-up');
+    function showSingUp(){
+      signIn.classList.add('hide');
+      signUp.classList.add('show');
+    }
+    function hideSignUp(){
+      signIn.classList.remove('hide');
+      signUp.classList.remove('show');
+    }
+      
+    function showMsgBox(){
+      var msg = document.querySelector('.msg');
+      msg.className = 'show';
+      setTimeout(function(){
+       msg.className = msg.className.replace('show','');
+      },3000);
+    }
+    
+    function resetpass(){
+      var reset = document.querySelector('.reset-pass');
+      signIn.classList.add('hide');
+      reset.classList.add('show');
+    }
+    
+    function goHome(){
+      var reset = document.querySelector('.reset-pass');
+      signIn.classList.remove('hide');
+      reset.classList.remove('show');
+    }
+    
+    function forgetpass(){
+      var forget = document.querySelector('.forget-pass');
+      signIn.classList.add('hide');
+      forget.classList.add('show');
+    }
+    
+    function goHome1(){
+      var forget = document.querySelector('.forget-pass');
+      signIn.classList.remove('hide');
+      forget.classList.remove('show');
+    }
+  </script>
+</body>
+</html>

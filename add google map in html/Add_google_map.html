@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>How to add google map in website</title>
+   <style>
+      *{
+         margin: 0;
+         padding: 0;
+      }
+      #map{
+         height: 500px;
+         width: 500px;
+      }
+   </style>
+</head>
+<body>
+   <div id="map"></div>
+   <script>
+      function initmap(){
+         //map option
+         var option = {
+            zoom: 4,
+            center: {lat: 12.565679,lng: 104.990967}
+         }
+         //new map
+         var map = new google.maps.Map(document.getElementById("map"), option);
+         //current location
+         var marker = new google.maps.Marker({ 
+            position: {lat: 12.565679,lng: 104.990967},
+            map:map
+         });
+      }
+   </script>  
+   <script async defer src="http://maps.googleapis.com/maps/api/js?key=&callback=initmap"></script>       
+</body>
+</html>

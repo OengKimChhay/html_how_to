@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Drop down menu</title>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    background: #fff;
+  }
+  nav{
+    background: #1b1b1b;
+  }
+  nav .ul-1{
+    list-style-type: none;
+  }
+  nav .ul-1 li{
+    position: relative;
+    display: inline-block;
+    background: #1b1b1b;
+    padding: 10px;
+  }
+  nav .ul-1 li a{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    line-height: 10px;
+    padding: 10px;
+  }
+  nav .ul-1 li:hover{
+    background: rgba(22,163,161,1.00);
+    color: white;
+  }
+  nav .ul-2{
+    position: absolute;
+    top: 45px;
+    left: 0;
+    visibility: hidden;
+    transition: top 0.4s;
+  }
+  nav .ul-1 li:hover .ul-2{
+    top: 38px;
+    visibility: visible;
+  }
+  nav .ul-2 li{
+    position: relative;
+    width: 150px;
+    display: inline-block;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+  }
+  nav .ul-3{
+    position: absolute;
+    top: 0;
+    left: 155px;
+    visibility: hidden;
+    transition: left 0.4s;
+  }
+  nav .ul-2 li:hover .ul-3{
+    left: 150px;
+    visibility: visible;
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <ul class="ul-1">
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Feature</a></li>
+      <li><a href="#">Service</a>
+        <ul class="ul-2">
+          <li><a href="#">web-design</a></li>
+          <li><a href="#">web-deverlop</a></li>
+          <li><a href="#">App-design</a>
+            <ul class="ul-3">
+              <li><a href="#">aaaa</a></li>
+              <li><a href="#">aaaa</a></li>
+              <li><a href="#">aaaa</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">Contect</a></li>
+      <li><a href="#">Team</a></li>
+    </ul>
+  </nav>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</body>
+</html>

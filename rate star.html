@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Rating Star</title>
+   <!--font awesome-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+   <style>
+      *{
+         margin: 0;
+         padding: 0;
+      }
+      body{
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%,-50% );
+         background-color: rgb(37, 37, 37);
+      }
+      .rate{
+         display: flex;
+         transform: rotateY(180deg);
+         -moz-transform: rotateY(180deg);
+         -webkit-transform: rotateY(180deg);
+      }
+      .rate input{
+         display: none;
+      }
+      .rate label{
+         width: 70px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+      .rate label i{
+         font-size: 60px;
+         cursor: pointer;
+         color: black;
+         transition: 0.2s;
+      }
+      .rate label i:hover,
+      .rate input:checked ~ label i{
+         color: rgb(56, 153, 245);
+      }
+   </style>
+</head>
+<body>
+   <div class="rate">
+      <input type="radio" id="star5" name="star"><label for="star5"><i class="fa fa-star"></i></label>
+      <input type="radio" id="star4" name="star"><label for="star4"><i class="fa fa-star"></i></label>
+      <input type="radio" id="star3" name="star"><label for="star3"><i class="fa fa-star"></i></label>
+      <input type="radio" id="star2" name="star"><label for="star2"><i class="fa fa-star"></i></label>
+      <input type="radio" id="star1" name="star"><label for="star1"><i class="fa fa-star"></i></label>
+   </div>
+</body>
+</html>

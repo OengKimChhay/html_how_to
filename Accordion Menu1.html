@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Side Bar Menu</title>
+<style>
+  *{ margin: 0; padding: 0;text-decoration: none;list-style: none;}
+  .wrap{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .accordion{
+    width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .btn{
+    background: #3498db;
+    display: flex;
+    padding: 16px 20px;
+    color: white;
+    font-size: 20px;
+    position: relative;
+  }
+  .btn:before{
+    content: '';
+    position: absolute;
+    left: 20px;
+    width: 14px;
+    height: 14px;
+    background-color: #3498db;
+    transform: rotate(45deg);
+    bottom: -7px;
+  }
+  .menu{
+    background:#333;
+    transition: 0.3s;
+    height: 0;
+  }
+  .menu a{
+    display: block;
+    padding: 16px 26px;
+    color: white;
+    font-size: 20px;
+    position: relative;
+  }
+  .menu a:before{
+    position: absolute;
+    content: '';
+    width: 6px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin:0 2px;
+    background-color: #F7984F;
+    transition: 0.3s;
+    opacity: 0;
+  }
+  .menu a:hover:before{
+    opacity: 1;
+  }
+  .item:target .menu{
+    height: 7em;
+  }
+  .item{
+    overflow: hidden;
+  }
+</style>
+</head>
+<body>
+  
+  <div class="wrap">
+    <div class="accordion">
+      <ul>
+        <li class="item" id="a">
+          <a href="#a" class="btn">Message</a>
+          <div class="menu">
+            <a href="#">aaaaaa</a>
+            <a href="#">aaaaaa</a>
+          </div>
+        </li>
+        <li class="item" id="b">
+          <a href="#b" class="btn">Message</a>
+          <div class="menu">
+            <a href="#">aaaaaaa</a>
+            <a href="#">aaaaaaa</a>
+            <a href="#">aaaaaaa</a>
+          </div>
+        </li>
+        <li class="item" id="c">
+          <a href="#c" class="btn">Message</a>
+          <div class="menu">
+            <a href="#">aaaaaaa</a>
+            <a href="#">aaaaaaa</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+  </div>
+  
+  
+  
+  
+  
+</body>
+</html>

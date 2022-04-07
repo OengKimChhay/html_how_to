@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>MaxLegth of the text(text Overflow)</title>
+</head>
+<body>
+   <h3>This how to limit the length of the text if u want ot hide some text overflow b using jquery.</h3>
+   <p class="p" max-length="500">W3Schools is provided without warranty of any kind. There are no guarantees that use of the site will not be subject to interruptions. All direct or indirect risk related to use of the site is borne entirely by the user. All code provided by W3Schools is provided as examples without warranties to performance, fitness, merchantability, and/or any other warranty (whether expressed or implied).
+      W3Schools may contain inaccuracies or errors. Refsnes Data makes no guarantees regarding the accuracy of the site or its contents. If you discover that the site or its contents contains errors, please contact us so these can be corrected.
+   </p>
+<!--jquery-->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+      $(".p").html(function(index,currentText){
+         var MaxLength = $(this).attr("max-length");
+         if(currentText.length > MaxLength){
+            return currentText.substr(0,MaxLength)+"........";
+         }else{
+            return currentText;
+         }
+      });
+   });
+</script>
+</body>
+</html>

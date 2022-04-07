@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login Form</title>
+   <style>
+      *{
+         margin: 0;
+         padding: 0;
+      }
+      body{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         min-height: 100vh;
+         background: linear-gradient(45deg,#FEAD06,#C00DEF);
+      }
+      .container{
+         background: cornsilk;
+         border-radius: 4px;
+         width: 400px;
+         padding: 30px;
+      }
+      form{
+         width: 100%;
+      }
+      .container p{
+         text-align: center;
+         font-size: 18px;
+         font-weight: bold;
+         margin: 10px;
+      }
+      .inputBox{
+         position: relative;
+         width: 100%;
+         margin-bottom: 35px;
+      }
+      .inputBox input{
+         width: 100%;
+         outline: none;
+         border: 1px solid #333333;
+         border-radius: 3px;
+         padding: 8px;
+         box-sizing: border-box;
+         background: transparent;
+      }
+      .inputBox span{
+         position: absolute;
+         top: 7px;
+         left: 9px;
+         font-size: 18px;
+         transition: 0.3s;
+         pointer-events: none;
+      }
+      .inputBox input:focus ~ span, input:valid ~ span{
+         font-size: 15px;
+         transform: translate(-10px, -29px);
+      }
+   </style>
+</head>
+<body>
+   <div class="container">
+      <p>LogIn</p>
+      <form action="#">
+         <div class="inputBox">
+            <input type="text" name="password">
+            <span>Email</span>
+         </div>
+         <div class="inputBox">
+            <input type="password" name="password">
+            <span>Password</span>
+         </div>
+         <div class="inputBox">
+            <input type="submit" name="submit">
+         </div>
+      </form>
+   </div>
+</body>
+</html>

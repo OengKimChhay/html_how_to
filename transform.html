@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Transform</title>
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+		background-color: white;	
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		min-height: 100vh;
+	}
+	.container{
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+	.container .transform{
+		margin: 20px;
+		width: 200px;
+		height: 100px;
+		background-color:#2A2A2A;
+		color: snow;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		letter-spacing: 2px;
+		transition: 0.4s;
+	}
+	.a:hover{
+		transform: translate(20px,20px);
+	}
+	.b:hover{
+		transform:rotate(45deg);
+	}
+	.c:hover{
+		transform:scale(1.4);
+	}
+	.d:hover{
+		transform: skewX(25deg);
+	}
+	.e:hover{
+		transform: skewY(20deg);
+	}
+	.f:hover{
+		transform: scaleY(1.3);
+	}
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="transform a">translate(20px,20px);</div>
+		<div class="transform b">rotate(45deg);</div>
+		<div class="transform c">scale(1.4);</div>
+		<div class="transform d">skewX(25deg);</div>
+		<div class="transform e">skewY(20deg);</div>
+		<div class="transform f">scaleY(1.3);</div>
+	</div>
+</body>
+</html>

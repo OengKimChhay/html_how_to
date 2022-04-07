@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Toggle animate button</title>
+<style>
+  body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }  
+  div.wrapper{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #5FB2E0;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  div.circle{
+    position: relative;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  div.circle span{
+    position: relative;
+    height: 15px;
+    width: 100%;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 5px rgba(0,0,0,.2);
+  }
+  div.circle.close span{
+    background: transparent;
+    box-shadow: 0 4px 5px rgba(0,0,0,0);
+    transition: all cubic-bezier(0.26,0.1,0.27,1.55) 0.25s;
+  }
+  div.circle span::before{
+    position: absolute;
+    content: '';
+    transform: translateY(-30px);
+    height: 15px;
+    width: 100%;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 5px rgba(0,0,0,.2);
+    transition: all cubic-bezier(0.26,0.1,0.27,1.55) 0.35s;
+  }
+  div.circle.close span::before{
+    transform: rotate(-45deg);
+  }
+  div.circle span::after{
+    position: absolute;
+    content: '';
+    transform: translateY(30px);
+    height: 15px;
+    width: 100%;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 5px rgba(0,0,0,.2);
+    transition: all cubic-bezier(0.26,0.1,0.27,1.55) 0.35s;
+  }
+  div.circle.close span::after{
+    transform: rotate(-135deg);
+  }
+</style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="circle">
+      <span></span>
+    </div>
+  </div>
+  
+  
+  <script>
+    var wrapper = document.querySelector('.wrapper');
+    var circle = document.querySelector('.circle');
+        wrapper.addEventListener('click',function(){
+          circle.classList.toggle('close');
+        });
+//    click any where to close toggle button
+    window.onclick = function(event){
+      if(event.target != wrapper && event.target!=document.querySelector('span') && event.target!= circle){
+        circle.classList.remove('close');
+      }
+    };
+  </script>
+</body>
+</html>

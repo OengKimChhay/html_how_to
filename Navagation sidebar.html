@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Navagation bar</title>
+<style>
+  htlml,body{
+    margin: 0;
+    padding: 0;
+  }
+  .section{
+    background-image: url("../image/banner-6.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+  }
+  header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  nav{
+    position: fixed;
+    left: 40px;
+    top: 40px;
+  }
+  nav .wrap-toggle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #333;
+    transition:all 0.4s ease;
+  }
+  nav.nav-is-visible .wrap-toggle{
+    height: 100%;
+  }
+  nav .toggle{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  nav .toggle span{
+    width: 20px;
+    height: 3px;
+    background-color: rgba(223,223,223,1.00);
+    position: relative;
+  }
+  nav.nav-is-visible .toggle span{
+    background-color: transparent;
+  }
+  nav .toggle span::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 3px;
+    background-color: rgba(223,223,223,1.00);
+    transform: translateY(-6px);
+    transition: transform 0.4s;
+  }
+  nav.nav-is-visible .toggle span::before{
+    transform: rotate(-45deg);
+  }
+  nav .toggle span::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 3px;
+    background-color: rgba(223,223,223,1.00);
+    transform: translateY(6px);
+    transition: transform 0.4s;
+  }
+   nav.nav-is-visible .toggle span::after{
+    transform: rotate(45deg);
+  }
+  nav ul{
+    padding: 50px 0 0 0;
+    list-style: none;
+    margin: 0;
+    visibility: hidden;
+    transition:all 0.1s ease;
+  }
+  nav.nav-is-visible ul{
+    visibility: visible;
+  }
+   nav ul li a{
+    display: block;
+    color: rgba(223,223,223,1.00);
+    line-height: 50px;
+    height: 60px;
+    text-decoration: none;
+    font-size: 16px; 
+    text-transform: uppercase;
+    font-weight: 700;
+     
+  }
+  nav ul li a.active{
+    color: #ea480d;
+  }
+  nav ul li .icon{
+    width: 60px;
+    display: inline-block;
+    text-align: center;
+    margin-right: 6px;
+    
+  }
+  nav ul li .icon img{
+    width: 20px;
+  }
+</style>
+</head>
+<body>
+  
+  <header>
+    <nav class=" nav nav-is-visible"> 
+      <div class="toggle">
+          <span></span>
+      </div>
+      <ul class="link">
+        <li><a href="#home" class="active"><div class="icon"><img src="../image/home_icon.png" alt=""></div>Home</a></li>
+        <li><a href="#about"><div class="icon"><img src="../image/home_icon.png" alt=""></div>about</a></li>
+        <li><a href="#profile"><div class="icon"><img src="../image/home_icon.png" alt=""></div>Profile</a></li>
+        <li><a href="#contect"><div class="icon"><img src="../image/home_icon.png" alt=""></div>Contect</a></li>
+        <li><a href="#blog"><div class="icon"><img src="../image/home_icon.png" alt=""></div>Blog</a></li>
+      </ul>
+      <div class="wrap-toggle"></div>
+    </nav>
+  </header>
+  
+  <section>
+    <div class="section"></div>
+  </section>
+  
+<script>
+  const toggle = document.querySelector('.toggle');
+  const nav = document.querySelector('.nav');
+        toggle.addEventListener('click',function(){
+          nav.classList.toggle('nav-is-visible');
+        })
+  
+  window.onclick = function(event){
+    if(event.target!=toggle && event.target!=document.querySelector('.toggle span')){
+      nav.classList.remove('nav-is-visible');
+    }
+  }
+  
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Responsive contect us</title>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body{
+		min-height: 100vh;
+		background-image: url("../image/person-on-a-bridge-near-a-lake-747964.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.wrap{
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+		padding: 0 20px;
+	}
+	.contect-form{
+		max-width: 550px;
+		margin: 0 auto;
+		background: rgba(0,0,0,0.50);
+		padding: 30px;
+		display: flex;
+	}
+	.input-field{
+		display: flex;
+		flex-direction: column;
+		margin-right: 4%;
+	}
+	.input-field,.msg-box{
+		width: 48%;
+	}
+	::-webkit-input-placeholder{
+		color: white;
+	}
+	::-moz-input-placeholder{	/* for fier fox*/
+		color: white;
+	}
+	::-ms-input-placeholder{
+		color: white;
+	}
+	.input-field input,.msg-box textarea{
+		margin: 10px 0;
+		background: transparent;
+		outline: none;
+		border: none;
+		border-bottom: 1px solid white;
+		color: white;
+		padding: 5px;
+		width: 100%;
+	}
+	.msg-box textarea{
+		height: 210px;
+	}
+	.msg-box input{
+		text-align: center;
+		width: 100%;
+		border-radius: 5px;
+		outline: none;
+		border: none;
+		background-color: #29F2FC;
+		color: black;
+	}
+	@media screen and (max-width:600px){
+		.contect-form{
+			display: flex;
+			flex-direction: column;
+		}
+		.input-field,.msg-box{
+			width: 100%;
+		}
+		.msg-box textarea{
+			height: 30%;
+		}
+	}
+</style>
+</head>
+<body>
+	
+	<div class="wrap">
+		<div class="contect-form">
+			<div class="input-field">
+				<input type="text" placeholder="Name">
+				<input type="text" placeholder="Sex">
+				<input type="number" placeholder="Age">
+				<input type="email" placeholder="Email">
+				<input type="password" placeholder="Password">
+			</div>
+			<div class="msg-box">
+				<textarea cols="20" rows="10" placeholder="Message"> </textarea>
+				<input value="Sent" type="button">
+			</div>
+		</div>
+	</div>
+	
+	
+</body>
+</html>
